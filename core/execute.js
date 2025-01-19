@@ -8,13 +8,16 @@ function loadScript(e) {
 loadScript("./core/var.js");
 
 function load() {
-  for (let i = 0; i < global.section.length; i++) {
-    const section = document.createElement("button");
-    section.className = global.name;
-    section.innerText = global.section[i].name;
-    section.addEventListener("click", function () {
-      window.location.href = global.section[i].url;
-    });
-    document.getElementById("base_div").appendChild(section);
-  }
+  sections.forEach(section=>{
+    const data = document.createElement("button")
+    data.className = "global";
+    data.innerText = section.name;
+    data.addEventListener("click", function () {
+        window.location.href = "subnet/"+section.id+"/main.html";
+      });
+
+
+    document.getElementById("base_div").appendChild(data);
+  })
+
 }
